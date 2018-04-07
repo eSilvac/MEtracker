@@ -76,22 +76,22 @@
           }
         });
 
-        // let cont2 = 1
-        // let interval = setInterval(function(){ 
-        //   let actual = rutaTranvia_D_O[cont2]
-        //   let pasado = cont2 == 0 ? 1 : rutaTranvia_D_O[cont2 - 1]
-        //   let result = [actual.lat, actual.lng];
-        //   actual_speed = speed(actual, pasado);
-        //   transition(result);
-        //   marker.setOptions({ label: { text: actual_speed }})
+        let cont2 = 1
+        let interval = setInterval(function(){ 
+          let actual = rutaTranvia_D_O[cont2]
+          let pasado = cont2 == 0 ? 1 : rutaTranvia_D_O[cont2 - 1]
+          let result = [actual.lat, actual.lng];
+          actual_speed = speed(actual, pasado);
+          transition(result);
+          marker.setOptions({ label: { text: actual_speed }})
 
-        //   // let latlng = new google.maps.LatLng(actual.lat, actual.lng);
-        //   // let resultColor = google.maps.geometry.poly.containsLocation(latlng, bermudaTriangle) ? 'green':'red';
-        //   // bermudaTriangle.setOptions({fillColor: resultColor, strokeColor: resultColor});
+          // let latlng = new google.maps.LatLng(actual.lat, actual.lng);
+          // let resultColor = google.maps.geometry.poly.containsLocation(latlng, bermudaTriangle) ? 'green':'red';
+          // bermudaTriangle.setOptions({fillColor: resultColor, strokeColor: resultColor});
 
-        //   cont2 +=1;
-        //   cont2 >= rutaTranvia_D_O.length ? clearInterval(interval) : '';
-        // }, 1000);
+          cont2 +=1;
+          cont2 >= rutaTranvia_D_O.length ? clearInterval(interval) : '';
+        }, 1000);
 
         google.maps.event.addListener(map,'zoom_changed',function() {
           resizeMarkersText(map);
